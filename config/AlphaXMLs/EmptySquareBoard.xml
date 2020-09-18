@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<escapeGameInitializer>
+    <coordinateType>SQUARE</coordinateType>
+    <xMax>8</xMax>
+    <yMax>8</yMax>
+    <locationInitializers>
+        <x>8</x>
+        <y>8</y>
+        <locationType>BLOCK</locationType>
+        <player>PLAYER1</player>
+        <pieceName>SNAIL</pieceName>
+    </locationInitializers>
+    <pieceTypes>
+        <movementPattern>OMNI</movementPattern>
+        <pieceName>FROG</pieceName>
+        <attributes>
+            <id>DISTANCE</id>
+            <attrType>INTEGER</attrType>
+            <intValue>5</intValue>
+        </attributes>
+   </pieceTypes>
+</escapeGameInitializer>

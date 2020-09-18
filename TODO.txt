@@ -1,0 +1,142 @@
+Pre. REFACTOR based on Beta Feedback
+   - refrain from large methods with lots of conditional if statements
+      - broke the move() down into a few methods
+         1. checkNeedsPathFinding()
+         2. isGameOver() (new for Gamma)
+         3. makeMove()
+      - checkNeedsPathFinding()
+        - instead of doing all the pre-pathfinding conditions here with if statements,
+          I now call static methods in a new class called PathfindValidationRules in escape.rule
+             - these methods were all the if statements thrown into that one method previously.
+      - filterAdjCoordinates() in path finding 
+        - removed if statements that dealt with setting up jumps and put into a new method initializeJump()
+        
+1. Create Tests for reading rules from xml files
+   - SampleEscapeGame.xml contains REMOVE -> TRUE
+   - SampleEscapeGame.xml contains SCORE -> TRUE
+   - SCORE value is equal to 10 -> TRUE
+   
+2. Implement Code for reading rules from xml files
+   - Create rules HashMap in escapeGame of RuleID and Integer
+   - create getter and setter for the HashMap
+   - create initializeRules method in EscapeGameBuilder and mimic previous initializer code
+   
+3. Create Tests for proper player making a move
+   - Player2 moves first -> FALSE
+   - Player1 moves first -> TRUE
+   - Player1 moves second -> FALSE
+   - Player2 moves second -> TRUE
+   - Fix Beta game tests to account for this new rule and make them all pass
+   
+4. Implement Code for proper player making a move
+   - create a upNext player variable in escape game, initialize to Player1
+   - create PlayerSpecifier interface for new strategy pattern
+   - add nextPlayer method to both player enums and call that when move returns true
+   - return false if player moving is not equal to upNext
+   
+5. Create Tests for REMOVE rule
+   - can capture enemy Piece -> TRUE
+   - can capture friendly piece -> FALSE
+   - value of piece does not change after capturing -> TRUE
+   - Fix Beta game tests to account for this new rule and make them all pass
+   - without REMOVE can capture enemy Piece -> FALSE
+   - without REMOVE can capture friendly piece -> FALSE
+   
+6. Implement Code for REMOVE rule
+   - create RuleIDSpecifier interface for a new Strategy pattern
+   - make specific applyRule method for REMOVE enum
+   
+7. Create tests for landing on EXITS
+   - player score equals 0 -> TRUE
+   - piece value 17 -> TRUE
+   - piece lands on exit -> TRUE
+   - player score equals 17 -> TRUE
+   
+8. Implement Code for landing on EXITS
+   - Add value variable into EscapePiece
+   - add value to piece during location initializer
+   - Add score variable to player enums
+   - update score with piece value when landing on exit
+
+9. Create Tests for SCORE rule
+   - SCORE set to 10 -> TRUE
+   - player1 score set to 0 -> TRUE
+   - player1 exits a piece worth 10 -> TRUE
+   - player1 wins -> TRUE
+   - move is made after win -> FALSE
+   - SCORE set to 10 -> TRUE
+   - player2 score set to 0 -> TRUE
+   - player2 exits a piece worth 10 -> TRUE
+   - player2 wins -> TRUE
+   - move is made after win -> FALSE
+   
+10. Implement Code for SCORE rule
+   - make specific applyRule method for SCORE enum
+   
+11. Create Tests for TURN_LIMIT rule
+   - TURN_LIMI set to 3 -> TRUE
+   - player1 and player 2 move (first turn) -> TRUE
+   - player1 and player 2 move (second turn) -> TRUE
+   - player1 and player 2 move (third turn) -> TRUE
+   - Tie is triggered -> TRUE
+   - move after game over from tie -> FALSE
+   - reset game
+   - TURN_LIMIT set to 3 -> TRUE
+   - player1 and player 2 move (first turn) -> TRUE
+   - player1 and player 2 move (second turn) -> TRUE
+   - player1 moves to exit space for points (third turn) -> TRUE
+   - player2 moves (third turn) -> TRUE
+   - player1 wins -> TRUE
+   - move after game over from win -> FALSE
+   - reset game
+   - TURN_LIMIT set to 3 -> TRUE
+   - player1 and player 2 move (first turn) -> TRUE
+   - player1 and player 2 move (second turn) -> TRUE
+   - player1 moves (third turn) -> TRUE
+   - player2 moves to exit space for points (third turn) -> TRUE
+   - player2 wins -> TRUE
+   - move after game over from win -> FALSE
+   
+12. Implement Code for TURN_LIMIT rule
+   - make specific applyRule method for TURN_LIMIT enum 
+
+13. Create Tests for POINT_CONFLICT rule
+   - two pieces have value of 10 -> TRUE
+   - those two pieces land on each other -> TRUE
+   - both pieces are removed from the game -> TRUE
+   - player score does not change -> TRUE 
+   - Piece of value 10 captures piece of value 7 -> TRUE
+   - Piece of 10 exists at end now -> TRUE
+   - Piece value changed to 3 -> TRUE
+   - player score does not change -> TRUE 
+   - Piece of value 4 can captures piece of value 10 -> FALSE
+   - Piece of 10 exists at end still -> TRUE
+   - Piece value changed to 6 -> TRUE
+   - player score does not change -> TRUE 
+
+12. Implement Code for POINT_CONFLICT rule
+   - make specific applyRule method for POINT_CONFLICT enum 
+   
+13. Add exception and test for XML having both REMOVE and POINT_CONFLICT
+   - assertThrows -> EscapeException
+
+14. Add Observer and messages into EscapeGameController
+
+15. Test Observer
+   - remove an observer that does't exist -> assertNull
+   - addObserver -> TRUE
+   - Create observerTest package in test folder
+     - add an TestObserver class
+     - use the class to add observers into ObserverTests.java file with older tests in it
+     - check that observer prints out messages when test file is run -> TRUE
+   - add getMessage method in TestObserver
+     - use it to unit test messages -> assertTrue
+   
+16. Refactor 
+
+17. Test again
+
+18. Repeat steps 16 and 17 until satisfied 
+   
+   
+   

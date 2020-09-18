@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<escapeGameInitializer>
+    <coordinateType>ORTHOSQUARE</coordinateType>
+    <xMax>8</xMax>
+    <yMax>8</yMax>
+    <pieceTypes>
+        <movementPattern>OMNI</movementPattern>
+        <pieceName>FROG</pieceName>
+        <attributes>
+            <id>DISTANCE</id>
+            <attrType>INTEGER</attrType>
+            <intValue>5</intValue>
+        </attributes>
+   </pieceTypes>
+</escapeGameInitializer>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<escapeGameInitializer>
+	<coordinateType>SQUARE</coordinateType>
+	<rules>
+		<id>TURN_LIMIT</id>
+		<intValue>3</intValue>
+	</rules>
+	<!-- Game rules -->
+	<!-- Board items -->
+	<xMax>50</xMax>
+	<yMax>50</yMax>
+	<locationInitializers>
+		<x>5</x>
+		<y>5</y>
+		<player>PLAYER1</player>
+		<pieceName>HORSE</pieceName>
+	</locationInitializers>
+	<locationInitializers>
+		<x>10</x>
+		<y>11</y>
+		<player>PLAYER2</player>
+		<pieceName>HORSE</pieceName>
+	</locationInitializers>
+	<locationInitializers>
+		<x>1</x>
+		<y>1</y>
+		<locationType>EXIT</locationType>
+	</locationInitializers>
+	<!-- Piece items, an array of pieceTypes, 1 or more -->
+	<pieceTypes>
+		<pieceName>HORSE</pieceName>
+		<movementPattern>OMNI</movementPattern>
+		<attributes>
+			<id>DISTANCE</id>
+			<attrType>INTEGER</attrType>
+			<intValue>100</intValue>
+		</attributes>
+		<attributes>
+			<id>VALUE</id>
+			<attrType>INTEGER</attrType>
+			<intValue>10</intValue>
+		</attributes>
+		<attributes>
+			<id>JUMP</id>
+			<attrType>BOOLEAN</attrType>
+			<booleanValue>true</booleanValue>
+		</attributes>
+	</pieceTypes>
+</escapeGameInitializer>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<escapeGameInitializer>
+    <coordinateType>ORTHOSQUARE</coordinateType>
+    <locationInitializers>
+        <x>7</x>
+        <y>8</y>
+        <locationType>CLEAR</locationType>
+        <player>PLAYER1</player>
+        <pieceName>HORSE</pieceName>
+    </locationInitializers>
+    <locationInitializers>
+    	<x>4</x>
+    	<y>5</y>
+    	<locationType>CLEAR</locationType>
+    	<player>PLAYER2</player>
+    	<pieceName>FROG</pieceName></locationInitializers>
+    <locationInitializers>
+        <x>3</x>
+        <y>5</y>
+        <locationType>BLOCK</locationType>
+    </locationInitializers>
+    <locationInitializers>
+    	<x>15</x>
+    	<y>15</y>
+    	<locationType>CLEAR</locationType>
+    	<player>PLAYER2</player>
+    	<pieceName>HORSE</pieceName>
+    	</locationInitializers>
+    <xMax>15</xMax>
+    <yMax>15</yMax>
+    <pieceTypes>
+        <movementPattern>OMNI</movementPattern>
+        <pieceName>FROG</pieceName>
+        <attributes>
+            <id>DISTANCE</id>
+            <attrType>INTEGER</attrType>
+            <intValue>5</intValue>
+        </attributes>
+   </pieceTypes>
+</escapeGameInitializer>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<escapeGameInitializer>
+	<coordinateType>HEX</coordinateType>
+	<!-- Game rules -->
+	<rules>
+		<id>REMOVE</id>
+	</rules>
+	<!-- Board items -->
+	<xMax>0</xMax>
+	<yMax>0</yMax>
+	<locationInitializers>
+		<x>5</x>
+		<y>-3</y>
+		<player>PLAYER1</player>
+		<pieceName>HORSE</pieceName>
+	</locationInitializers>
+	<locationInitializers>
+		<x>0</x>
+		<y>0</y>
+		<player>PLAYER2</player>
+		<pieceName>HORSE</pieceName>
+	</locationInitializers>
+	<!-- Piece items, an array of pieceTypes, 1 or more -->
+	<pieceTypes>
+		<pieceName>HORSE</pieceName>
+		<movementPattern>OMNI</movementPattern>
+		<attributes>
+			<id>DISTANCE</id>
+			<attrType>INTEGER</attrType>
+			<intValue>100</intValue>
+		</attributes>
+		<attributes>
+			<id>VALUE</id>
+			<attrType>INTEGER</attrType>
+			<intValue>17</intValue>
+		</attributes>
+		<attributes>
+			<id>JUMP</id>
+			<attrType>BOOLEAN</attrType>
+			<booleanValue>true</booleanValue>
+		</attributes>
+	</pieceTypes>
+</escapeGameInitializer>
